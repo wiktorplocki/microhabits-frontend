@@ -1,0 +1,32 @@
+
+<mat-card class="habits-card">
+    <mat-card-title class="mat-headline-small">Twoje mikro-nawyki</mat-card-title>
+
+    <mat-progress-spinner
+        *ngIf="loading"
+        mode="indeterminate"
+        diameter="40"
+        class="spinner">
+    </mat-progress-spinner>
+
+    <p class="mat-body-small error-message" *ngIf="error">{{ error }}</p>
+
+    <mat-list *ngIf="!loading && habits.length > 0" class="habit-list">
+        <mat-list-item *ngFor="let habit of habits" class="habit-item">
+            <div mat-line class="mat-body-large habit-name">{{ habit.name }}</div>
+            <div mat-line class="mat-body-small habit-date">{{ habit.createdAt | date:'short' }}</div>
+            <button
+                mat-icon-button
+                color="warn"
+                aria-label="Usuń nawyk"
+                (click)="deleteHabit(habit.id)"
+            >
+                <mat-icon>delete</mat-icon>
+            </button>
+        </mat-list-item>
+    </mat-list>
+
+    <p *ngIf="!loading && habits.length === 0" class="mat-body-small empty-message">
+        Nie masz jeszcze żadnych mikro-nawyków.
+    </p>
+</mat-card>
