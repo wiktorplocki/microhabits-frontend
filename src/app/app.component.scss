@@ -1,0 +1,40 @@
+.layout-container {
+    height: 100vh;
+}
+
+.app-icon {
+    margin-right: 0.5rem;
+    font-size: 1.6rem;
+}
+
+.app-title {
+    font-weight: 500;
+    font-size: 1.25rem;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.hide-mobile {
+    display: none;
+}
+
+.show-mobile {
+    display: inline-flex;
+}
+
+@media (min-width: 768px) {
+    .hide-mobile {
+        display: inline-flex;
+    }
+    .show-mobile {
+        display: none;
+    }
+}
+
+mat-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
